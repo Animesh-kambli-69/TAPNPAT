@@ -1,0 +1,43 @@
+name: tapnpat
+description: A NFC mobile Flutter application for seamless transactions.
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # NFC support
+  nfc_manager: ^3.3.0
+
+  # State management
+  provider: ^6.1.1
+
+  # Local storage
+  shared_preferences: ^2.2.2
+
+  # Internationalization / date formatting
+  intl: ^0.19.0
+
+  # Unique ID generation
+  uuid: ^4.3.3
+
+  # QR code display
+  qr_flutter: ^4.1.0
+
+  # Icons
+  cupertino_icons: ^1.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  mockito: ^5.4.4
+  build_runner: ^2.4.7
+
+flutter:
+  uses-material-design: true
