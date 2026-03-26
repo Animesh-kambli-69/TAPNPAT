@@ -7,11 +7,13 @@ import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage';
 import DriverOnboarding from './pages/Driver/DriverOnboarding';
 import DriverDashboard from './pages/Driver/DriverDashboard';
+import DriverProfile from './pages/Driver/DriverProfile';
 import DriverRides from './pages/Driver/Rides';
 import DriverEarnings from './pages/Driver/Earnings';
 import DriverPaymentDisplay from './pages/Driver/DriverPaymentDisplay';
 import CustomerOnboarding from './pages/Customer/CustomerOnboarding';
 import CustomerDashboard from './pages/Customer/CustomerDashboard';
+import CustomerProfile from './pages/Customer/CustomerProfile';
 import CustomerWallet from './pages/Customer/Wallet';
 import CustomerTransactions from './pages/Customer/Transactions';
 import AdminDashboard from './pages/Admin/AdminDashboard';
@@ -75,6 +77,7 @@ function AppRoutes() {
               ) : (
                 <>
                   <Route path="/driver/dashboard" element={<ProtectedRoute requiredRole="driver"><DriverDashboard /></ProtectedRoute>} />
+                  <Route path="/driver/profile" element={<ProtectedRoute requiredRole="driver"><DriverProfile /></ProtectedRoute>} />
                   <Route path="/driver/rides" element={<ProtectedRoute requiredRole="driver"><DriverRides /></ProtectedRoute>} />
                   <Route path="/driver/earnings" element={<ProtectedRoute requiredRole="driver"><DriverEarnings /></ProtectedRoute>} />
                   <Route path="/driver/payment-card" element={<ProtectedRoute requiredRole="driver"><DriverPaymentDisplay /></ProtectedRoute>} />
@@ -96,6 +99,7 @@ function AppRoutes() {
               ) : (
                 <>
                   <Route path="/customer/dashboard" element={<ProtectedRoute requiredRole="customer"><CustomerDashboard /></ProtectedRoute>} />
+                  <Route path="/customer/profile" element={<ProtectedRoute requiredRole="customer"><CustomerProfile /></ProtectedRoute>} />
                   <Route path="/customer/wallet" element={<ProtectedRoute requiredRole="customer"><CustomerWallet /></ProtectedRoute>} />
                   <Route path="/customer/transactions" element={<ProtectedRoute requiredRole="customer"><CustomerTransactions /></ProtectedRoute>} />
                   <Route path="/" element={<Navigate to="/customer/dashboard" replace />} />

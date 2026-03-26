@@ -67,6 +67,15 @@ export default function LoginPage() {
           {/* Role Selection Screen */}
           {!selectedRole ? (
             <div className="space-y-4">
+              {/* Back to Landing Button */}
+              <button
+                type="button"
+                onClick={() => navigate('/')}
+                className="mb-4 px-3 py-2 text-cyber-blue hover:text-cyber-gray-light hover:bg-cyber-navy/50 text-sm font-semibold flex items-center gap-1 transition rounded"
+              >
+                ← Back to Home
+              </button>
+
               <p className="text-cyber-gray-light text-center mb-6 font-semibold">Choose your role to continue</p>
 
               {/* Driver Button */}
@@ -103,18 +112,15 @@ export default function LoginPage() {
             </div>
           ) : (
             <>
-              {/* Back Button */}
+              {/* Back to Landing Button */}
               <button
                 type="button"
                 onClick={() => {
-                  setSelectedRole(null);
-                  setError('');
-                  setFormData({ email: '', phone: '', name: '', password: '', role: 'customer' });
-                  setIsLogin(true);
+                  navigate('/');
                 }}
                 className="mb-6 px-3 py-2 text-cyber-blue hover:text-cyber-gray-light hover:bg-cyber-navy/50 text-sm font-semibold flex items-center gap-1 transition rounded"
               >
-                ← Back to Role Selection
+                ← Back to Home
               </button>
 
               {/* Tabs */}

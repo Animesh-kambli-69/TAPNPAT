@@ -1,5 +1,5 @@
 import { useAuth } from '../../hooks/useAuth';
-import { LogOut, Menu, X } from 'lucide-react';
+import { LogOut, Menu, X, User } from 'lucide-react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -11,6 +11,12 @@ export default function Navbar({ title }) {
   const handleLogout = async () => {
     await logout();
     navigate('/login');
+  };
+
+  const getProfileRoute = () => {
+    if (user?.role === 'driver') return '/driver/profile';
+    if (user?.role === 'customer') return '/customer/profile';
+    return '/';
   };
 
   return (
@@ -26,6 +32,15 @@ export default function Navbar({ title }) {
             <p className="text-cyber-gray-light font-semibold">{user?.name}</p>
             <p className="text-cyber-gray-dark text-sm capitalize">{user?.role}</p>
           </div>
+          {user?.isVerified && (
+            <button
+              onClick={() => navigate(getProfileRoute())}
+              className="bg-cyber-blue text-cyber-navy px-4 py-2 rounded-lg hover:bg-cyan-600 transition flex items-center gap-2"
+            >
+              <User size={18} />
+              Profile
+            </button>
+          )}
           <button
             onClick={handleLogout}
             className="bg-cyber-orange text-cyber-navy px-4 py-2 rounded-lg hover:bg-orange-600 transition flex items-center gap-2"
@@ -50,6 +65,18 @@ export default function Navbar({ title }) {
             <p className="font-semibold">{user?.name}</p>
             <p className="text-cyber-gray-dark text-sm capitalize">{user?.role}</p>
           </div>
+          {user?.isVerified && (
+            <button
+              onClick={() => {
+                navigate(getProfileRoute());
+                setMenuOpen(false);
+              }}
+              className="w-full bg-cyber-blue text-cyber-navy px-4 py-2 rounded-lg hover:bg-cyan-600 transition flex items-center justify-center gap-2 mb-2"
+            >
+              <User size={18} />
+              Profile
+            </button>
+          )}
           <button
             onClick={handleLogout}
             className="w-full bg-cyber-orange text-cyber-navy px-4 py-2 rounded-lg hover:bg-orange-600 transition flex items-center justify-center gap-2"
