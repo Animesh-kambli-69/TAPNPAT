@@ -105,11 +105,14 @@ export default function LoginPage() {
             <>
               {/* Back Button */}
               <button
+                type="button"
                 onClick={() => {
                   setSelectedRole(null);
                   setError('');
+                  setFormData({ email: '', phone: '', name: '', password: '', role: 'customer' });
+                  setIsLogin(true);
                 }}
-                className="mb-6 text-cyber-blue hover:text-cyber-gray-light text-sm font-semibold flex items-center gap-1 transition"
+                className="mb-6 px-3 py-2 text-cyber-blue hover:text-cyber-gray-light hover:bg-cyber-navy/50 text-sm font-semibold flex items-center gap-1 transition rounded"
               >
                 ← Back to Role Selection
               </button>
